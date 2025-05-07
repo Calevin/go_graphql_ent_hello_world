@@ -23,3 +23,12 @@ go.work.sum
 
 # env file
 .env
+
+# Ignorar configuración del IDE
+.idea/
+
+# docker logs -f container > log.txt
+log.txt
+
+# data volumen docker
+data/

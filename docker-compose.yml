@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  gql_ent_db:
+    container_name: gql_ent_db
+    environment:
+      POSTGRES_PASSWORD: gql_ent_db
+      POSTGRES_USER: gql_ent_db
+      POSTGRES_DB: gql_ent_db
+    image: postgres:13
+    expose:
+      - 5432
+    ports:
+      - "5436:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    # Opcional: Persistir datos
+    # volumes:
+    #   - db_data:/var/lib/postgresql/data
+
+# Opcional: Definir volumen si se usa
+# volumes:
+#   db_data:

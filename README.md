@@ -62,3 +62,29 @@ models:
   User:
     model: go_graphql_ent_hello_world/ent.User
 ```
+
+## Ejemplos GrapgQL
+Entrar a ```http://localhost:8080/```
+
+Consulta
+```json
+query GetAllUsers {
+  users {
+    id
+    name
+    email
+  }
+}
+```
+
+Creacion
+```json
+mutation CreateNewUser {
+  createUser(input: { name: "Seba", email: "seba@example.com" }) {
+    # Los campos del usuario que queremos de vuelta
+    id
+    name
+    email
+  }
+}
+```

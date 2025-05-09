@@ -1,0 +1,24 @@
+# Tipos definidos
+type User {
+  id: ID!
+  name: String!
+  email: String!
+}
+
+# Input para la mutación de crear usuario
+input CreateUserInput {
+  name: String!
+  email: String!
+}
+
+# Consultas (Leer datos)
+type Query {
+  # Lista todos los usuarios
+  users: [User!]!
+}
+
+# Mutaciones (Modificar datos)
+type Mutation {
+  # Crea un nuevo usuario
+  createUser(input: CreateUserInput!): User!
+}

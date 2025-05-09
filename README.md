@@ -40,3 +40,25 @@ Se usa -mod=mod para asegurar que la resolución de dependencias sea reproducibl
 ```
 go generate ./ent
 ```
+
+## Definir el esquema GraphQL
+```
+gqlgen init
+```
+
+crear graph/schema.graphqls (defines tus tipos, consultas y mutaciones)
+
+crear gqlgen.yml 
+
+* graph/generated.go con el servidor base.
+* graph/model/models_gen.go con todos los tipos Go que mapean tu esquema.
+* graph/schema.resolvers.go con los stubs de tus resolvers.
+
+## Modificar gqlgen.yml:
+```yml
+# ... otras configuraciones ...
+models:
+ ... otras configuraciones ...
+  User:
+    model: go_graphql_ent_hello_world/ent.User
+```
